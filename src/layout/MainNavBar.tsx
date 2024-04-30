@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useAppContext } from "../state/AppContext";
+import { useState } from "react";
 
 export const MainNavBar = () => {
+  const { selectedBible } = useAppContext();
+  const [visibleSearchBox, setVisibleSearchBox] = useState(false);
+
   return (
     <div className="navbar bg-neutral text-neutral-content">
       <div className="flex-none">
@@ -26,24 +31,26 @@ export const MainNavBar = () => {
         </Link>
       </div>
 
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Bible: [XXXX]</a>
-          </li>
-        </ul>
+      <div className="flex-none mx-2">
+        <Link to="/bible/select">Bible: {selectedBible ?? "[Select]"}</Link>
       </div>
 
       <div className="flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
-          />
-        </div>
-
-        <button className="btn btn-ghost btn-circle">
+        {visibleSearchBox && (
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered w-24 md:w-auto"
+            />
+          </div>
+        )}
+        <button
+          className="btn btn-ghost btn-circle"
+          onClick={() => {
+            setVisibleSearchBox(!visibleSearchBox);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"

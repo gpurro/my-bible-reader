@@ -4,13 +4,16 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Outlet, RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import "./App.css";
+import { AppContextProvider } from "./state/AppContext";
 
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <AppContextProvider>
+        <RouterProvider router={router} />
+        <Outlet />
+      </AppContextProvider>
       <ReactQueryDevtools />
-      <Outlet />
     </QueryClientProvider>
   );
 };
