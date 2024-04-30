@@ -1,11 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../../state/AppContext";
 import { BibleSelector } from "../components/BibleSelector";
 
 export const BibleSelectorPage = () => {
   const { selectedBible, setSelectedBible } = useAppContext();
+  const navigate = useNavigate();
 
   const handleSelector = (bible: string) => {
     setSelectedBible(bible);
+  };
+
+  const handleSelect = () => {
+    // navigate(-1);
+    navigate(`/bible/show/${selectedBible}`);
   };
 
   return (
@@ -18,7 +25,11 @@ export const BibleSelectorPage = () => {
           initialValue={selectedBible}
         />
         <div className="card-actions justify-end">
-          <button className="btn btn-primary" disabled={!selectedBible}>
+          <button
+            className="btn btn-primary"
+            disabled={!selectedBible}
+            onClick={handleSelect}
+          >
             Select
           </button>
         </div>

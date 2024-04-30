@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useBibles } from "../hooks/useBibles";
+import { useBiblesQuery } from "../hooks/useBiblesQuery";
 
 interface BibleSelectorProps {
   initialValue?: string | null;
@@ -10,7 +10,7 @@ export const BibleSelector = ({
   initialValue = null,
   onSelected,
 }: BibleSelectorProps) => {
-  const bibles = useBibles();
+  const biblesQuery = useBiblesQuery();
   const none = "Select a Bible";
   const [selectedBible, setSelectedBible] = useState<string>(
     initialValue ?? ""
@@ -31,7 +31,7 @@ export const BibleSelector = ({
       <option disabled value="">
         {none}
       </option>
-      {bibles.data?.map((bible) => (
+      {biblesQuery.data?.map((bible) => (
         <option key={bible.id} value={bible.abbreviation}>
           {bible.name}
         </option>
