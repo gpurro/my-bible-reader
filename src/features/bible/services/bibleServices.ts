@@ -1,3 +1,4 @@
+import { LoaderFunctionArgs } from "react-router-dom";
 import { apiClient } from "../../../api/apiClient";
 import { Bible } from "../interfaces/bible";
 
@@ -29,7 +30,14 @@ export const fetchBibles = async (bibleAbbr: string = "") => {
   return bibles as Bible[];
 };
 
-export const getBibleByAbbr = async (bibleAbbr: string) => {
+const getBibleByAbbr = async (bibleAbbr: string) => {
   const bibles = await fetchBibles(bibleAbbr);
   return bibles[0].id;
+};
+
+export const showBibleLoader = async ({ params }: LoaderFunctionArgs<any>) => {
+  const bibleAbbr = params.bibleAbbr;
+  if (!bibleAbbr) return;
+  const bibleId = await getBibleByAbbr(bibleAbbr);
+  return bibleId;
 };

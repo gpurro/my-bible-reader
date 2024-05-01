@@ -4,7 +4,7 @@ import { MainLayout } from "./layout/MainLayout";
 import { LoginPage } from "./features/authentication/LoginPage";
 import { BibleSelectorPage } from "./features/bible/pages/BibleSelectorPage";
 import { BibleShowPage } from "./features/bible/pages/BibleShowPage";
-import { getBibleByAbbr } from "./features/bible/services/bibleServices";
+import { showBibleLoader } from "./features/bible/services/bibleServices";
 
 export const router = createBrowserRouter(
   [
@@ -18,12 +18,7 @@ export const router = createBrowserRouter(
         {
           path: "bible/show/:bibleAbbr",
           element: <BibleShowPage />,
-          loader: async ({ params }) => {
-            const bibleAbbr = params.bibleAbbr;
-            if (!bibleAbbr) return;
-            const bibleId = await getBibleByAbbr(bibleAbbr);
-            return bibleId;
-          },
+          loader: showBibleLoader,
         },
         { path: "*", element: <Navigate to="/" /> },
       ],
