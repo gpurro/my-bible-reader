@@ -1,8 +1,9 @@
 import { createContext, useContext, useState } from "react";
+import { Bible } from "../features/bible/interfaces/bible";
 
 interface AppContextType {
-  selectedBible: string | null;
-  setSelectedBible: (bible: string) => void;
+  selectedBible: Bible | null;
+  setSelectedBible: (bible: Bible) => void;
 }
 
 export const AppContext = createContext<AppContextType | null>(null);
@@ -10,7 +11,7 @@ export const AppContext = createContext<AppContextType | null>(null);
 export const AppContextProvider = ({ children }: React.PropsWithChildren) => {
   const [appContext, setAppContext] = useState<AppContextType>({
     selectedBible: null,
-    setSelectedBible: (bible: string) => {
+    setSelectedBible: (bible: Bible) => {
       setAppContext((prev) => {
         return { ...prev, selectedBible: bible };
       });

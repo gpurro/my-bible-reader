@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
-import { Book } from "../components/Book";
+import { Bible } from "../components/Bible";
 import { useAppContext } from "../../../state/AppContext";
 import { useEffect } from "react";
-import { fetchBible } from "../../bible/services/bibleServices";
+import { useParams } from "react-router-dom";
+import { fetchBible } from "../services/bibleServices";
 
-export const BookDetailsPage = () => {
-  const { bibleId, bookId } = useParams();
+export const BibleDetailsPage = () => {
+  const { bibleId } = useParams();
   const { selectedBible, setSelectedBible } = useAppContext();
 
   useEffect(() => {
@@ -17,5 +17,5 @@ export const BookDetailsPage = () => {
     }
   }, [bibleId]);
 
-  return <div>{bookId && <Book bookId={bookId} />}</div>;
+  return <div>{bibleId && <Bible bibleId={bibleId} />}</div>;
 };

@@ -6,13 +6,11 @@ interface BookCardProps {
 }
 
 export const BookCard = ({ book }: BookCardProps) => {
-  const bibleAbbr = "WEB";
-
   return (
     <div className="card w-72 bg-base-100 shadow-xl">
       <div className="card-body">
         <Link
-          to={`/bible/show/${bibleAbbr}/book/${book.id}`}
+          to={`/bible/show/${book.bibleId}/book/${book.id}`}
           className="card-title"
         >
           {book.abbreviation}

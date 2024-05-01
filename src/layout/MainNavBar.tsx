@@ -32,7 +32,9 @@ export const MainNavBar = () => {
       </div>
 
       <div className="flex-none mx-2">
-        <Link to="/bible/select">Bible: {selectedBible ?? "[Select]"}</Link>
+        <Link to="/bible/select">
+          Bible: {selectedBible?.abbreviation ?? "[Select]"}
+        </Link>
       </div>
 
       <div className="flex-none gap-2">

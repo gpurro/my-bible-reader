@@ -12,27 +12,27 @@ export const BibleSelector = ({
 }: BibleSelectorProps) => {
   const biblesQuery = useBiblesQuery();
   const none = "Select a Bible";
-  const [selectedBible, setSelectedBible] = useState<string>(
+  const [selectedBibleId, setSelectedBibleId] = useState<string>(
     initialValue ?? ""
   );
 
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selected = event.target.value;
-    setSelectedBible(selected);
+    setSelectedBibleId(selected);
     if (onSelected) onSelected(selected);
   };
 
   return (
     <select
       className="select select-bordered w-full max-w-xs"
-      value={selectedBible}
+      value={selectedBibleId}
       onChange={handleSelect}
     >
       <option disabled value="">
         {none}
       </option>
       {biblesQuery.data?.map((bible) => (
-        <option key={bible.id} value={bible.abbreviation}>
+        <option key={bible.id} value={bible.id}>
           {bible.name}
         </option>
       ))}
