@@ -5,6 +5,8 @@ import { LoginPage } from "./features/authentication/LoginPage";
 import { BibleSelectorPage } from "./features/bible/pages/BibleSelectorPage";
 import { BibleShowPage } from "./features/bible/pages/BibleShowPage";
 import { showBibleLoader } from "./features/bible/services/bibleServices";
+import { BookDetailsPage } from "./features/book/pages/BookDetailsPage";
+import { showBookLoader } from "./features/book/services/bookServices";
 
 export const router = createBrowserRouter(
   [
@@ -19,6 +21,11 @@ export const router = createBrowserRouter(
           path: "bible/show/:bibleAbbr",
           element: <BibleShowPage />,
           loader: showBibleLoader,
+        },
+        {
+          path: "bible/show/:bibleAbbr/book/:bookId",
+          element: <BookDetailsPage />,
+          loader: showBookLoader,
         },
         { path: "*", element: <Navigate to="/" /> },
       ],

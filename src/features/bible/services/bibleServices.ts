@@ -1,6 +1,7 @@
 import { LoaderFunctionArgs } from "react-router-dom";
 import { apiClient } from "../../../api/apiClient";
 import { Bible } from "../interfaces/bible";
+import { queryClient } from "../../../api/reactQueryClient";
 
 export const fetchBible = async (bibleId: string) => {
   const bibleResponse = await apiClient.get(`bibles/${bibleId}`);
@@ -30,14 +31,20 @@ export const fetchBibles = async (bibleAbbr: string = "") => {
   return bibles as Bible[];
 };
 
-const getBibleByAbbr = async (bibleAbbr: string) => {
-  const bibles = await fetchBibles(bibleAbbr);
-  return bibles[0].id;
+export const getBibleByAbbr = async (bibleAbbr: string) => {
+  const bibles = await queryClient.fetchQuery({
+    queryKey: ["bibles", { abbreviation: bibleAbbr }],
+    queryFn: () => {
+      return fetchBibles(bibleAbbr);
+    },
+    staleTime: 1000 * 60 * 60,
+  });
+  return bibles[0];
 };
 
 export const showBibleLoader = async ({ params }: LoaderFunctionArgs<any>) => {
   const bibleAbbr = params.bibleAbbr;
   if (!bibleAbbr) return;
-  const bibleId = await getBibleByAbbr(bibleAbbr);
-  return bibleId;
+  const bible = await getBibleByAbbr(bibleAbbr);
+  return bible.id;
 };
