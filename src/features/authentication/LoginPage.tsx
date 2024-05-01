@@ -1,6 +1,6 @@
 export const LoginPage = () => {
   return (
-    <div className="card w-96 bg-base-100 shadow-xl m-auto">
+    <div className="card w-96 bg-base-100 shadow-xl absolute-center">
       <div className="card-body">
         <h2 className="card-title">Log in</h2>
         <p>Please, enter your user credentials:</p>

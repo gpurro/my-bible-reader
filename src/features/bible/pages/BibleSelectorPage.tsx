@@ -16,7 +16,7 @@ export const BibleSelectorPage = () => {
   };
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl m-auto">
+    <div className="card w-96 bg-base-100 shadow-xl absolute-center">
       <div className="card-body">
         <h2 className="card-title">Bible</h2>
         <p>Please, select a Bible:</p>
