@@ -23,6 +23,10 @@ export const router = createBrowserRouter(
           path: "bible/show/:bibleId/book/:bookId",
           element: <BookDetailsPage />,
         },
+        {
+          path: "bible/show/:bibleId/book/:bookId/chapter/:chapterId",
+          element: <BookDetailsPage />,
+        },
         { path: "*", element: <Navigate to="/" /> },
       ],
     },

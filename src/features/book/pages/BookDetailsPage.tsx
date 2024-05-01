@@ -1,21 +1,12 @@
 import { useParams } from "react-router-dom";
 import { Book } from "../components/Book";
-import { useAppContext } from "../../../state/AppContext";
-import { useEffect } from "react";
-import { fetchBible } from "../../bible/services/bibleServices";
+import { useSelectedBible } from "../hooks/useSelectedBible";
 
 export const BookDetailsPage = () => {
-  const { bibleId, bookId } = useParams();
-  const { selectedBible, setSelectedBible } = useAppContext();
+  const { bookId } = useParams();
+  const { bibleId } = useSelectedBible();
 
-  useEffect(() => {
-    // check if bibleId is not equal to the selected bible
-    if (bibleId && bibleId !== selectedBible?.id) {
-      fetchBible(bibleId).then((bible) => {
-        setSelectedBible(bible);
-      });
-    }
-  }, [bibleId]);
-
-  return <div>{bookId && <Book bookId={bookId} />}</div>;
+  return (
+    <div>{bookId && bibleId && <Book bibleId={bibleId} bookId={bookId} />}</div>
+  );
 };
