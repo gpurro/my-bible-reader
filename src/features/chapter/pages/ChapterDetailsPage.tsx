@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Chapter } from "../components/Chapter";
-import { useSelectedBible } from "../../book/hooks/useSelectedBible";
+import { useSelectedBible } from "../../bible/hooks/useSelectedBible";
 
 export const ChapterDetailsPage = () => {
   const { chapterId } = useParams();

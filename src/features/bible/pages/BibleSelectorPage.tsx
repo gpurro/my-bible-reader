@@ -2,17 +2,23 @@ import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../../state/AppContext";
 import { BibleSelector } from "../components/BibleSelector";
 import { fetchBible } from "../services/bibleServices";
+import { useState } from "react";
 
 export const BibleSelectorPage = () => {
   const { selectedBible, setSelectedBible } = useAppContext();
+  const [isFetching, setIsFetching] = useState(false);
+
   const navigate = useNavigate();
 
-  const handleSelector = (bibleId: string) => {
+  const handleSelected = (bibleId: string) => {
     fetchBible(bibleId).then((bible) => {
       setSelectedBible(bible);
     });
   };
 
+  const handleDataFetched = (isFetching: boolean) => {
+    setIsFetching(isFetching);
+  };
   const handleSelect = () => {
     // navigate(-1);
     navigate(`/bible/show/${selectedBible?.id}`);
@@ -24,13 +30,14 @@ export const BibleSelectorPage = () => {
         <h2 className="card-title">Bible</h2>
         <p>Please, select a Bible:</p>
         <BibleSelector
-          onSelected={handleSelector}
+          onSelected={handleSelected}
+          onDataFetched={handleDataFetched}
           initialValue={selectedBible?.id}
         />
         <div className="card-actions justify-end">
           <button
             className="btn btn-primary"
-            disabled={!selectedBible}
+            disabled={!selectedBible || isFetching}
             onClick={handleSelect}
           >
             Select

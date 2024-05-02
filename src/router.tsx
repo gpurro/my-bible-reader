@@ -26,11 +26,11 @@ export const router = createBrowserRouter(
           element: <BookDetailsPage />,
         },
         {
-          path: "bible/show/:bibleId/chapter/:chapterId",
+          path: "bible/show/:bibleId/book/:bookId/chapter/:chapterId",
           element: <ChapterDetailsPage />,
         },
         {
-          path: "bible/show/:bibleId/verse/:verseId",
+          path: "bible/show/:bibleId/book/:bookId/chapter/:chapterId/verse/:verseId",
           element: <VerseDetailsPage />,
         },
         { path: "*", element: <Navigate to="/" /> },

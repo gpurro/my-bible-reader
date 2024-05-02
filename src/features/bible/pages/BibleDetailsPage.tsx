@@ -1,5 +1,5 @@
 import { Bible } from "../components/Bible";
-import { useSelectedBible } from "../../book/hooks/useSelectedBible";
+import { useSelectedBible } from "../hooks/useSelectedBible";
 
 export const BibleDetailsPage = () => {
   const { bibleId } = useSelectedBible();

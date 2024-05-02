@@ -1,15 +1,20 @@
 import { Outlet } from "react-router-dom";
-import { MainNavBar } from "./MainNavBar";
+import { NavBar } from "./NavBar";
 import { Footer } from "./Footer";
+import { Breadcrumb } from "./Breadcrumb";
+import { useBreadcrumbs } from "../hooks/useBreadcrumbs";
 
 export const MainLayout = () => {
+  useBreadcrumbs();
+
   return (
     <>
       <div className="flex flex-col min-h-screen max-h-screen ">
         <header>
-          <MainNavBar />
+          <NavBar />
+          <Breadcrumb />
         </header>
-        <main className=" flex-1 overflow-auto">
+        <main className=" flex-1 overflow-auto p-4">
           <Outlet />
         </main>
         <footer>

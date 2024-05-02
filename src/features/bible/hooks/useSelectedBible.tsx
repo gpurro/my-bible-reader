@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useAppContext } from "../../../state/AppContext";
 import { useEffect } from "react";
-import { fetchBible } from "../../bible/services/bibleServices";
+import { fetchBible } from "../services/bibleServices";
 
 export const useSelectedBible = () => {
   const { bibleId } = useParams();

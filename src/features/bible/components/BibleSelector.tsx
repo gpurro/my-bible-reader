@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useBiblesQuery } from "../hooks/useBiblesQuery";
 
 interface BibleSelectorProps {
   initialValue?: string | null;
   onSelected?: (bible: string) => void;
+  onDataFetched?: (isFetching: boolean) => void;
 }
 
 export const BibleSelector = ({
   initialValue = null,
   onSelected,
+  onDataFetched,
 }: BibleSelectorProps) => {
   const biblesQuery = useBiblesQuery();
   const none = "Select a Bible";
@@ -21,6 +23,10 @@ export const BibleSelector = ({
     setSelectedBibleId(selected);
     if (onSelected) onSelected(selected);
   };
+
+  useEffect(() => {
+    if (onDataFetched) onDataFetched(biblesQuery.isFetching);
+  }, [biblesQuery.isFetching]);
 
   return (
     <select

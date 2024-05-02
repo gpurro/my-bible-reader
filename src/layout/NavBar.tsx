@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../state/AppContext";
 import { useState } from "react";
 
-export const MainNavBar = () => {
+export const NavBar = () => {
   const { selectedBible } = useAppContext();
   const [visibleSearchBox, setVisibleSearchBox] = useState(false);
 

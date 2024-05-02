@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Verse } from "../components/Verse";
-import { useSelectedBible } from "../../book/hooks/useSelectedBible";
+import { useSelectedBible } from "../../bible/hooks/useSelectedBible";
 
 export const VerseDetailsPage = () => {
   const { verseId } = useParams();
