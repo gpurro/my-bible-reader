@@ -6,6 +6,7 @@ import { BibleSelectorPage } from "./features/bible/pages/BibleSelectorPage";
 import { BibleDetailsPage } from "./features/bible/pages/BibleDetailsPage";
 import { BookDetailsPage } from "./features/book/pages/BookDetailsPage";
 import { ChapterDetailsPage } from "./features/chapter/pages/ChapterDetailsPage";
+import { VerseDetailsPage } from "./features/verse/pages/VerseDetailsPage";
 
 export const router = createBrowserRouter(
   [
@@ -30,7 +31,7 @@ export const router = createBrowserRouter(
         },
         {
           path: "bible/show/:bibleId/verse/:verseId",
-          element: <div>pending</div>,
+          element: <VerseDetailsPage />,
         },
         { path: "*", element: <Navigate to="/" /> },
       ],
