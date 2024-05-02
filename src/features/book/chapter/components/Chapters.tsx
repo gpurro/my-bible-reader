@@ -17,7 +17,9 @@ export const Chapters = ({ bibleId, bookId }: ChaptersProps) => {
           <ul className="flex flex-wrap gap-2">
             {chaptersQuery.data?.map((chapter) => (
               <li key={chapter.id}>
-                <Link to={`/bible/show/${bibleId}/chapter/${chapter.id}`}>
+                <Link
+                  to={`/bible/show/${bibleId}/book/${bookId}/chapter/${chapter.id}`}
+                >
                   {chapter.number}
                 </Link>
               </li>

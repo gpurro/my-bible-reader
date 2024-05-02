@@ -3,7 +3,7 @@ import { fetchBook } from "../services/bookServices";
 
 export const useBookQuery = (bibleId: string, bookId: string) => {
   const bookQuery = useQuery({
-    queryKey: ["books", { bookId }],
+    queryKey: ["books", { bibleId, bookId }],
     queryFn: () => {
       return fetchBook(bibleId, bookId);
     },
