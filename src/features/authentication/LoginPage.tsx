@@ -1,4 +1,17 @@
+import { useState } from "react";
+
 export const LoginPage = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl absolute-center">
       <div className="card-body">
@@ -14,7 +27,13 @@ export const LoginPage = () => {
           >
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
           </svg>
-          <input type="text" className="grow" placeholder="Username" />
+          <input
+            type="text"
+            className="grow"
+            placeholder="Username"
+            value={username}
+            onChange={handleUsernameChange}
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           <svg
@@ -29,7 +48,13 @@ export const LoginPage = () => {
               clipRule="evenodd"
             />
           </svg>
-          <input type="password" className="grow" value="password" />
+          <input
+            type="password"
+            className="grow"
+            value={password}
+            placeholder="Password"
+            onChange={handlePasswordChange}
+          />
         </label>
 
         <div className="card-actions justify-end">

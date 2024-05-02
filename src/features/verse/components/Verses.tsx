@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useVersesQuery } from "../hooks/useVersesQuery";
+import { Favorite } from "./Favorite";
 
 interface VersesProps {
   bibleId: string;
@@ -22,6 +23,7 @@ export const Verses = ({ bibleId, chapterId }: VersesProps) => {
                 >
                   {verse.id}
                 </Link>
+                <Favorite verse={verse}></Favorite>
               </li>
             ))}
           </ul>

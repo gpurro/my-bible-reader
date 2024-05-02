@@ -1,5 +1,6 @@
 import { useVerseQuery } from "../hooks/useVerseQuery";
 import parse from "html-react-parser";
+import { Favorite } from "./Favorite";
 
 interface VerseProps {
   bibleId: string;
@@ -11,11 +12,19 @@ export const Verse = ({ bibleId, verseId }: VerseProps) => {
 
   return (
     <div>
-      <div>Verse: {verseQuery.data?.id}</div>
-      <br />
-      <div className="eb-container">
-        {verseQuery.data?.content && parse(verseQuery.data?.content)}
-      </div>
+      {verseQuery.data?.id && (
+        <>
+          <div>
+            <p>
+              Verse: {verseQuery.data?.id} <Favorite verse={verseQuery.data} />
+            </p>
+          </div>
+          <br />
+          <div className="eb-container">
+            {verseQuery.data?.content && parse(verseQuery.data?.content)}
+          </div>
+        </>
+      )}
     </div>
   );
 };
