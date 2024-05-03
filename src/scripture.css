@@ -6,19 +6,87 @@
   color: #333;
 }
 
-.eb-container html, .eb-container body, .eb-container div, .eb-container span, .eb-container applet, .eb-container object, .eb-container iframe,
-.eb-container h1, .eb-container h2, .eb-container h3, .eb-container h4, .eb-container h5, .eb-container h6, .eb-container p, .eb-container blockquote, .eb-container pre,
-.eb-container a, .eb-container abbr, .eb-container acronym, .eb-container address, .eb-container big, .eb-container cite, .eb-container code,
-.eb-container del, .eb-container dfn, .eb-container em, .eb-container img, .eb-container ins, .eb-container kbd, .eb-container q, .eb-container s, .eb-container samp,
-.eb-container small, .eb-container strike, .eb-container strong, .eb-container sub, .eb-container sup, .eb-container tt, .eb-container var,
-.eb-container b, .eb-container u, .eb-container i, .eb-container center,
-.eb-container dl, .eb-container dt, .eb-container dd, .eb-container ol, .eb-container ul, .eb-container li,
-.eb-container fieldset, .eb-container form, .eb-container label, .eb-container legend,
-.eb-container table, .eb-container caption, .eb-container tbody, .eb-container tfoot, .eb-container thead, .eb-container tr, .eb-container th, .eb-container td,
-.eb-container article, .eb-container aside, .eb-container canvas, .eb-container details, .eb-container embed,
-.eb-container figure, .eb-container figcaption, .eb-container footer, .eb-container header, .eb-container hgroup,
-.eb-container menu, .eb-container nav, .eb-container output, .eb-container ruby, .eb-container section, .eb-container summary,
-.eb-container time, .eb-container mark, .eb-container audio, .eb-container video {
+.eb-container html,
+.eb-container body,
+.eb-container div,
+.eb-container span,
+.eb-container applet,
+.eb-container object,
+.eb-container iframe,
+.eb-container h1,
+.eb-container h2,
+.eb-container h3,
+.eb-container h4,
+.eb-container h5,
+.eb-container h6,
+.eb-container p,
+.eb-container blockquote,
+.eb-container pre,
+.eb-container a,
+.eb-container abbr,
+.eb-container acronym,
+.eb-container address,
+.eb-container big,
+.eb-container cite,
+.eb-container code,
+.eb-container del,
+.eb-container dfn,
+.eb-container em,
+.eb-container img,
+.eb-container ins,
+.eb-container kbd,
+.eb-container q,
+.eb-container s,
+.eb-container samp,
+.eb-container small,
+.eb-container strike,
+.eb-container strong,
+.eb-container sub,
+.eb-container sup,
+.eb-container tt,
+.eb-container var,
+.eb-container b,
+.eb-container u,
+.eb-container i,
+.eb-container center,
+.eb-container dl,
+.eb-container dt,
+.eb-container dd,
+.eb-container ol,
+.eb-container ul,
+.eb-container li,
+.eb-container fieldset,
+.eb-container form,
+.eb-container label,
+.eb-container legend,
+.eb-container table,
+.eb-container caption,
+.eb-container tbody,
+.eb-container tfoot,
+.eb-container thead,
+.eb-container tr,
+.eb-container th,
+.eb-container td,
+.eb-container article,
+.eb-container aside,
+.eb-container canvas,
+.eb-container details,
+.eb-container embed,
+.eb-container figure,
+.eb-container figcaption,
+.eb-container footer,
+.eb-container header,
+.eb-container hgroup,
+.eb-container menu,
+.eb-container nav,
+.eb-container output,
+.eb-container ruby,
+.eb-container section,
+.eb-container summary,
+.eb-container time,
+.eb-container mark,
+.eb-container audio,
+.eb-container video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -27,22 +95,35 @@
   vertical-align: baseline;
 }
 
-.eb-container article, .eb-container aside, .eb-container details, .eb-container figcaption, .eb-container figure,
-.eb-container footer, .eb-container header, .eb-container hgroup, .eb-container menu, .eb-container nav, .eb-container section {
+.eb-container article,
+.eb-container aside,
+.eb-container details,
+.eb-container figcaption,
+.eb-container figure,
+.eb-container footer,
+.eb-container header,
+.eb-container hgroup,
+.eb-container menu,
+.eb-container nav,
+.eb-container section {
   display: block;
 }
 
-.eb-container ol, .eb-container ul {
+.eb-container ol,
+.eb-container ul {
   list-style: none;
 }
 
-.eb-container blockquote, .eb-container q {
+.eb-container blockquote,
+.eb-container q {
   quotes: none;
 }
 
-.eb-container blockquote:before, .eb-container blockquote:after,
-.eb-container q:before, .eb-container q:after {
-  content: '';
+.eb-container blockquote:before,
+.eb-container blockquote:after,
+.eb-container q:before,
+.eb-container q:after {
+  content: "";
   content: none;
 }
 
@@ -86,10 +167,10 @@
   font-style: italic;
 }
 
-.eb-container sup[class^=v] {
+.eb-container sup[class^="v"] {
   color: black;
-  font-size: .7em;
-  letter-spacing: -.03em;
+  font-size: 0.7em;
+  letter-spacing: -0.03em;
   vertical-align: 0.25em;
   line-height: 0;
   font-family: "Helvetica", sans-serif;
@@ -97,7 +178,7 @@
   top: inherit;
 }
 
-.eb-container sup[class^=v]:after {
+.eb-container sup[class^="v"]:after {
   content: "\a0";
 }
 
@@ -131,16 +212,19 @@
 
 .eb-container .notelink {
   text-decoration: underline;
-  padding: .1em;
+  padding: 0.1em;
 }
 
-.eb-container .notelink, .eb-container .notelink:hover, .eb-container .notelink:active, .eb-container .notelink:visited {
+.eb-container .notelink,
+.eb-container .notelink:hover,
+.eb-container .notelink:active,
+.eb-container .notelink:visited {
   color: #8c8c8c;
 }
 
 .eb-container .notelink sup {
-  font-size: .7em;
-  letter-spacing: -.03em;
+  font-size: 0.7em;
+  letter-spacing: -0.03em;
   vertical-align: 0.25em;
   line-height: 0;
   font-family: "Helvetica", sans-serif;
@@ -164,7 +248,7 @@
   font-variant: small-caps;
 }
 
-.eb-container [class^=fq] {
+.eb-container [class^="fq"] {
   font-style: italic;
 }
 
@@ -175,8 +259,8 @@
 
 .eb-container .fv {
   color: #737373;
-  font-size: .75em;
-  letter-spacing: -.03em;
+  font-size: 0.75em;
+  letter-spacing: -0.03em;
   vertical-align: 0.25em;
   line-height: 0;
   font-family: "Helvetica", sans-serif;
@@ -192,29 +276,34 @@
   font-style: italic;
 }
 
-.eb-container [class^=imt] {
+.eb-container [class^="imt"] {
   text-align: center;
   font-weight: bold;
 }
 
-.eb-container .imt, .eb-container .imt1,
-.eb-container .imte, .eb-container .imte1 {
+.eb-container .imt,
+.eb-container .imt1,
+.eb-container .imte,
+.eb-container .imte1 {
   font-size: 1.4em;
 }
 
-.eb-container .imt2, .eb-container .imte2 {
+.eb-container .imt2,
+.eb-container .imte2 {
   font-size: 1.3em;
 }
 
-.eb-container .imt3, .eb-container .imte3 {
+.eb-container .imt3,
+.eb-container .imte3 {
   font-size: 1.2em;
 }
 
-.eb-container .imt4, .eb-container .imte4 {
+.eb-container .imt4,
+.eb-container .imte4 {
   font-size: 1.1em;
 }
 
-.eb-container [class^=is] {
+.eb-container [class^="is"] {
   font-size: 1.1em;
   text-align: center;
   font-weight: bold;
@@ -255,7 +344,7 @@
   text-indent: 0;
 }
 
-.eb-container [class^=iq] {
+.eb-container [class^="iq"] {
   margin-left: 1em;
   margin-right: 1em;
 }
@@ -264,7 +353,7 @@
   text-indent: 1em;
 }
 
-.eb-container [class^=ili] {
+.eb-container [class^="ili"] {
   padding-left: 1em;
   text-indent: -1em;
 }
@@ -285,7 +374,8 @@
   margin-top: 1.5em;
 }
 
-.eb-container .io, .eb-container .io1 {
+.eb-container .io,
+.eb-container .io1 {
   margin-left: 1em;
   margin-right: 0em;
 }
@@ -318,7 +408,7 @@
   font-style: italic;
 }
 
-.eb-container [class^=p] {
+.eb-container [class^="p"] {
   text-indent: 1em;
 }
 
@@ -381,7 +471,7 @@
   text-align: right;
 }
 
-.eb-container [class^=li] {
+.eb-container [class^="li"] {
   padding-left: 1em;
   text-indent: -1em;
   margin-left: 1em;
@@ -403,7 +493,7 @@
   margin-right: 0em;
 }
 
-.eb-container [class^=q] {
+.eb-container [class^="q"] {
   padding-left: 1em;
   text-indent: -1em;
   margin-left: 1em;
@@ -506,7 +596,7 @@
 }
 
 .eb-container .wj {
-  color: #CC0000;
+  color: #cc0000;
 }
 
 .eb-container .em {
@@ -553,32 +643,33 @@
   display: table-row;
 }
 
-.eb-container [class^=th] {
+.eb-container [class^="th"] {
   font-style: italic;
   display: table-cell;
 }
 
-.eb-container [class^=thr] {
+.eb-container [class^="thr"] {
   text-align: right;
   padding-right: 1.5em;
 }
 
-.eb-container [class^=tc] {
+.eb-container [class^="tc"] {
   display: table-cell;
 }
 
-.eb-container [class^=tcr] {
+.eb-container [class^="tcr"] {
   text-align: right;
   padding-right: 1.5em;
 }
 
-.eb-container [class^=mt] {
+.eb-container [class^="mt"] {
   text-align: center;
   font-weight: bold;
   letter-spacing: normal;
 }
 
-.eb-container .mt, .eb-container .mt1 {
+.eb-container .mt,
+.eb-container .mt1 {
   font-size: 2.8em;
 }
 
@@ -588,14 +679,15 @@
   font-weight: normal;
 }
 
-.eb-container [class^=ms] {
+.eb-container [class^="ms"] {
   text-align: center;
   font-weight: bold;
   line-height: 1.2;
   letter-spacing: normal;
 }
 
-.eb-container .ms, .eb-container .ms1 {
+.eb-container .ms,
+.eb-container .ms1 {
   font-size: 1.6em;
 }
 
@@ -608,14 +700,15 @@
 }
 
 .eb-container .mr {
-  font-size: .9em;
+  font-size: 0.9em;
   margin-bottom: 1em;
   text-align: center;
   font-weight: normal;
   font-style: italic;
 }
 
-.eb-container .s, .eb-container .s1 {
+.eb-container .s,
+.eb-container .s1 {
   text-align: center;
   font-weight: bold;
   font-size: 1.1em;
@@ -652,7 +745,7 @@
 }
 
 .eb-container .r {
-  font-size: .9em;
+  font-size: 0.9em;
   font-weight: normal;
   font-style: italic;
   text-align: center;
@@ -660,7 +753,7 @@
 }
 
 .eb-container .rq {
-  font-size: .85em;
+  font-size: 0.85em;
   line-height: 1.9;
   font-style: italic;
   padding-left: rhythm(0.5);
@@ -682,7 +775,18 @@
   letter-spacing: normal;
 }
 
-.eb-container [class^=p] + .s, .eb-container [class^=p] + .s1, .eb-container [class^=q] + .s, .eb-container [class^=q] + .s1 {
+.eb-container [class^="p"] + .s,
+.eb-container [class^="p"] + .s1,
+.eb-container [class^="q"] + .s,
+.eb-container [class^="q"] + .s1 {
   margin-top: 1.5em;
 }
 
+/* Additional styles */
+
+/* verse numbering */
+.eb-container p span.v {
+  font-size: x-small;
+  vertical-align: text-top;
+  margin-right: 0.2rem;
+}

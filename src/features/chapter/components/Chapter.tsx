@@ -12,7 +12,8 @@ export const Chapter = ({ bibleId, chapterId }: ChapterProps) => {
 
   return (
     <div>
-      <div>Chapter: {chapterQuery.data?.id}</div>
+      <div>Chapter: {chapterQuery.data?.reference}</div>
+      <br />
       <div>Verses: </div>
       <Verses bibleId={bibleId} chapterId={chapterId} />
       <br />

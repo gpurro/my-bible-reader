@@ -15,21 +15,21 @@ export const useBreadcrumbs = () => {
     if (selectedBible?.id) {
       breadcrumbs.push({
         text: selectedBible?.name,
-        url: `/bible/show/${selectedBible?.id}`,
+        url: `/bible/${selectedBible?.id}/show`,
       });
     }
 
     if (bookId) {
       breadcrumbs.push({
         text: bookId,
-        url: `/bible/show/${selectedBible?.id}/book/${bookId}`,
+        url: `/bible/${selectedBible?.id}/show/book/${bookId}`,
       });
     }
 
     if (bookId && chapterId) {
       breadcrumbs.push({
         text: chapterId,
-        url: `/bible/show/${selectedBible?.id}/book/${bookId}/chapter/${chapterId}`,
+        url: `/bible/${selectedBible?.id}/show/book/${bookId}/chapter/${chapterId}`,
       });
     }
 

@@ -1,5 +1,4 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import { HomePage } from "./features/home/HomePage";
 import { MainLayout } from "./layout/MainLayout";
 import { LoginPage } from "./features/authentication/LoginPage";
 import { BibleSelectorPage } from "./features/bible/pages/BibleSelectorPage";
@@ -7,6 +6,8 @@ import { BibleDetailsPage } from "./features/bible/pages/BibleDetailsPage";
 import { BookDetailsPage } from "./features/book/pages/BookDetailsPage";
 import { ChapterDetailsPage } from "./features/chapter/pages/ChapterDetailsPage";
 import { VerseDetailsPage } from "./features/verse/pages/VerseDetailsPage";
+import { HomePage } from "./features/home/HomePage";
+import { SearchPage } from "./features/search/pages/SearchPage";
 
 export const router = createBrowserRouter(
   [
@@ -14,24 +15,31 @@ export const router = createBrowserRouter(
       path: "/",
       element: <MainLayout />,
       children: [
-        { index: true, element: <HomePage /> },
+        {
+          index: true,
+          element: <HomePage />,
+        },
         { path: "login", element: <LoginPage /> },
         { path: "bible/select", element: <BibleSelectorPage /> },
         {
-          path: "bible/show/:bibleId",
+          path: "bible/:bibleId/show",
           element: <BibleDetailsPage />,
         },
         {
-          path: "bible/show/:bibleId/book/:bookId",
+          path: "bible/:bibleId/show/book/:bookId",
           element: <BookDetailsPage />,
         },
         {
-          path: "bible/show/:bibleId/book/:bookId/chapter/:chapterId",
+          path: "bible/:bibleId/show/book/:bookId/chapter/:chapterId",
           element: <ChapterDetailsPage />,
         },
         {
-          path: "bible/show/:bibleId/book/:bookId/chapter/:chapterId/verse/:verseId",
+          path: "bible/:bibleId/show/book/:bookId/chapter/:chapterId/verse/:verseId",
           element: <VerseDetailsPage />,
+        },
+        {
+          path: "bible/:bibleId/search",
+          element: <SearchPage />,
         },
         { path: "*", element: <Navigate to="/" /> },
       ],

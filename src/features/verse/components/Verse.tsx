@@ -15,8 +15,9 @@ export const Verse = ({ bibleId, verseId }: VerseProps) => {
       {verseQuery.data?.id && (
         <>
           <div>
-            <p>
-              Verse: {verseQuery.data?.id} <Favorite verse={verseQuery.data} />
+            <p className="group">
+              Verse: {verseQuery.data?.reference}{" "}
+              <Favorite verse={verseQuery.data} />
             </p>
           </div>
           <br />

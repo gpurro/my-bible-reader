@@ -17,9 +17,9 @@ export const Verses = ({ bibleId, chapterId }: VersesProps) => {
         {versesQuery.isSuccess && (
           <ul className="flex flex-wrap gap-2">
             {versesQuery.data?.map((verse) => (
-              <li key={verse.id}>
+              <li key={verse.id} className="group">
                 <Link
-                  to={`/bible/show/${bibleId}/book/${verse.bookId}/chapter/${verse.chapterId}/verse/${verse.id}`}
+                  to={`/bible/${bibleId}/show/book/${verse.bookId}/chapter/${verse.chapterId}/verse/${verse.id}`}
                 >
                   {verse.id}
                 </Link>

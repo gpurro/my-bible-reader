@@ -21,7 +21,7 @@ export const BibleSelectorPage = () => {
   };
   const handleSelect = () => {
     // navigate(-1);
-    navigate(`/bible/show/${selectedBible?.id}`);
+    navigate(`/bible/${selectedBible?.id}/show`);
   };
 
   return (

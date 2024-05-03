@@ -18,7 +18,7 @@ export const Chapters = ({ bibleId, bookId }: ChaptersProps) => {
             {chaptersQuery.data?.map((chapter) => (
               <li key={chapter.id}>
                 <Link
-                  to={`/bible/show/${bibleId}/book/${chapter.bookId}/chapter/${chapter.id}`}
+                  to={`/bible/${bibleId}/show/book/${chapter.bookId}/chapter/${chapter.id}`}
                 >
                   {chapter.number}
                 </Link>

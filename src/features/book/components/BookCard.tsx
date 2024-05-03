@@ -10,7 +10,7 @@ export const BookCard = ({ book }: BookCardProps) => {
     <div className="card w-72 bg-base-100 shadow-xl">
       <div className="card-body">
         <Link
-          to={`/bible/show/${book.bibleId}/book/${book.id}`}
+          to={`/bible/${book.bibleId}/show/book/${book.id}`}
           className="card-title"
         >
           {book.abbreviation}
