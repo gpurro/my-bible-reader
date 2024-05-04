@@ -1,9 +1,16 @@
 import { apiClient } from "../../../api/apiClient";
 import { Verse } from "../interfaces/verse";
+import parse from "html-react-parser";
 
 export const fetchVerse = async (bibleId: string = "", verseId: string) => {
   const verseResponse = await apiClient.get(
-    `bibles/${bibleId}/verses/${verseId}`
+    `bibles/${bibleId}/verses/${verseId}`,
+    {
+      params: {
+        "content-type": "json",
+        "include-verse-numbers": "false",
+      },
+    }
   );
   if (verseResponse.status != 200) {
     throw new Error(verseResponse.statusText);
@@ -25,4 +32,8 @@ export const fetchVerses = async (bibleId: string, chapterId: string) => {
     verses.push(verse);
   });
   return verses as Verse[];
+};
+
+export const parseHtmlVerse = (htmlVerse: string) => {
+  return parse(htmlVerse);
 };

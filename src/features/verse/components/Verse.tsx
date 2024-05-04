@@ -1,5 +1,5 @@
+import { TextViewer } from "../../textViewer/components/TextViewer";
 import { useVerseQuery } from "../hooks/useVerseQuery";
-import parse from "html-react-parser";
 import { Favorite } from "./Favorite";
 
 interface VerseProps {
@@ -22,7 +22,9 @@ export const Verse = ({ bibleId, verseId }: VerseProps) => {
           </div>
           <br />
           <div className="eb-container">
-            {verseQuery.data?.content && parse(verseQuery.data?.content)}
+            {verseQuery.data?.content && (
+              <TextViewer content={verseQuery.data?.content} />
+            )}
           </div>
         </>
       )}

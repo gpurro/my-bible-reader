@@ -1,4 +1,4 @@
-import { MdFavorite } from "react-icons/md";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { Verse } from "../interfaces/verse";
 import { useId, useState } from "react";
 import {
@@ -24,11 +24,11 @@ export const Favorite = ({ verse }: FavoriteProps) => {
   };
 
   return (
-    <span
-      onClick={handleOnClick}
-      className={isFavorite ? "visible" : "invisible group-hover:visible"}
-    >
-      <MdFavorite className="inline mb-1" />
+    <span onClick={handleOnClick} className="inline ">
+      {isFavorite && <MdFavorite className="inline mb-1" />}
+      {!isFavorite && (
+        <MdFavoriteBorder className="inline mb-1 invisible group-hover:visible" />
+      )}
     </span>
   );
 };

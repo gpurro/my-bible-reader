@@ -4,7 +4,7 @@ export interface Chapter {
   number: string;
   bookId: string;
   reference: string;
-  content: string;
+  content: object[];
   verseCount: number;
   copyright: string;
 }

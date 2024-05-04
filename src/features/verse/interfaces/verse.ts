@@ -4,7 +4,7 @@ export interface Verse {
   bibleId: string;
   bookId: string;
   chapterId: string;
-  content: string;
+  content: object[];
   reference: string;
   verseCount: number;
   copyright: string;
