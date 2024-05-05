@@ -7,7 +7,7 @@ interface BookCardProps {
 
 export const BookCard = ({ book }: BookCardProps) => {
   return (
-    <div className="card w-72 bg-base-100 shadow-xl">
+    <div className="card w-48 bg-base-100 shadow-xl m-4">
       <div className="card-body">
         <Link
           to={`/bible/${book.bibleId}/show/book/${book.id}`}

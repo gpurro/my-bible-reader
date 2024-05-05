@@ -2,8 +2,13 @@ import { Annotation } from "../interfaces/annotation";
 
 export const addAnnotation = (annotation: Annotation) => {
   const annotations = getAnnotations();
+  if (!annotations.id) {
+    annotations.id = Date.now().toString();
+  }
+
   const newAnnotations = [...annotations, annotation];
   localStorage.setItem("annotations", JSON.stringify(newAnnotations));
+  dispatchEvent(new Event("storage"));
 };
 
 export const removeAnnotation = (annotationId: string) => {
@@ -12,6 +17,7 @@ export const removeAnnotation = (annotationId: string) => {
     (annotation: Annotation) => annotation.id !== annotationId
   );
   localStorage.setItem("annotations", JSON.stringify(newAnnotations));
+  dispatchEvent(new Event("storage"));
 };
 
 export const getAnnotations = () => {
@@ -26,10 +32,16 @@ export const getAnnotationsByUserId = (userId: string) => {
   );
 };
 
-export const getAnnotationsByVerseId = (userId: string, verseId: string) => {
+export const getAnnotationsByBibleAndVerseId = (
+  userId: string,
+  bibleId: string,
+  verseId: string
+) => {
   const annotations = getAnnotations();
   return annotations.filter(
     (annotation: Annotation) =>
-      annotation.verseId === verseId && annotation.userId === userId
+      annotation.bibleId === bibleId &&
+      annotation.verseId === verseId &&
+      annotation.userId === userId
   );
 };

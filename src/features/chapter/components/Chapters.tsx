@@ -16,7 +16,10 @@ export const Chapters = ({ bibleId, bookId }: ChaptersProps) => {
         {chaptersQuery.isSuccess && (
           <ul className="flex flex-wrap gap-2">
             {chaptersQuery.data?.map((chapter) => (
-              <li key={chapter.id}>
+              <li
+                key={chapter.id}
+                className="border-gray-300 p-2 border-solid border-2 rounded-md hover:bg-gray-100 "
+              >
                 <Link
                   to={`/bible/${bibleId}/show/book/${chapter.bookId}/chapter/${chapter.id}`}
                 >

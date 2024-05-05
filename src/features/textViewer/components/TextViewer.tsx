@@ -2,6 +2,11 @@ import { useMemo, useState } from "react";
 import { useAppContext } from "../../../state/AppContext";
 import { Annotation } from "../../annotation/interfaces/annotation";
 import { getAnnotationsByVerseId } from "../../annotation/services/annotationServices";
+import { useLocalStorage } from "usehooks-ts";
+import {
+  addFavoriteAnnotation,
+  removeFavoriteAnnotation,
+} from "../../annotation/services/favoriteServices";
 
 interface TextViewerProps {
   content: Node[];
@@ -83,35 +88,27 @@ const VerseNodeViewer = ({ node }: { node: Node }) => {
   const { selectedBible } = useAppContext();
   const bibleId = selectedBible?.id || "";
 
-  // const initialFavorite = checkFavorite(verseId, bibleId);
-  // const [isFavorite, setIsFavorite] = useState(initialFavorite);
-  const isFavorite = useMemo(
-    () => checkFavorite(verseId, bibleId),
-    [verseId, bibleId]
+  const [annotations] = useLocalStorage("annotations", [] as Annotation[]);
+
+  const isFavorite = annotations.some(
+    (favorite: Annotation) =>
+      favorite.verseId === verseId && favorite.bibleId === bibleId
   );
 
-  const handleOnClick = () => {};
+  const handleOnClick = () => {
+    if (isFavorite) removeFavoriteAnnotation(bibleId, verseId);
+    else addFavoriteAnnotation(bibleId, verseId);
+  };
 
   return (
     <span
-      className={`hover:bg-yellow-100 ${isFavorite ? " !bg-yellow-100 " : ""}`}
+      className={`hover:bg-yellow-100 cursor-pointer ${
+        isFavorite ? " !bg-yellow-100 " : ""
+      }`}
       onClick={handleOnClick}
     >
       {verseNumber && <span className="v">{verseNumber}</span>}
       <span>{node.text}</span>;
     </span>
-  );
-};
-
-const checkFavorite = (verseId: string, bibleId: string) => {
-  const favorites = getAnnotationsByVerseId("1", verseId);
-
-  console.log(`checking ${verseId} ${bibleId} `);
-
-  if (!bibleId) return false;
-
-  return favorites.some(
-    (favorite: Annotation) =>
-      favorite.verseId === verseId && favorite.bibleId === bibleId
   );
 };

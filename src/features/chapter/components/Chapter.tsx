@@ -15,6 +15,7 @@ export const Chapter = ({ bibleId, chapterId }: ChapterProps) => {
       <div>Chapter: {chapterQuery.data?.reference}</div>
       <br />
       <div>Verses: </div>
+      <br />
       <Verses bibleId={bibleId} chapterId={chapterId} />
       <br />
       <div className="eb-container">

@@ -1,26 +1,26 @@
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { Verse } from "../interfaces/verse";
-import { useId, useState } from "react";
-import {
-  addAnnotation,
-  getAnnotationsByVerseId,
-  removeAnnotation,
-} from "../../annotation/services/annotationServices";
 import { Annotation } from "../../annotation/interfaces/annotation";
+import { useLocalStorage } from "usehooks-ts";
+import {
+  addFavoriteAnnotation,
+  removeFavoriteAnnotation,
+} from "../../annotation/services/favoriteServices";
 interface FavoriteProps {
   verse: Verse;
 }
 
 export const Favorite = ({ verse }: FavoriteProps) => {
-  const initialValue = checkFavorite(verse);
-  const [isFavorite, setIsFavorite] = useState(initialValue);
-  const id = useId();
+  const [annotations] = useLocalStorage("annotations", [] as Annotation[]);
+
+  const isFavorite = annotations.some(
+    (favorite: Annotation) =>
+      favorite.verseId === verse.id && favorite.bibleId === verse.bibleId
+  );
 
   const handleOnClick = () => {
-    if (isFavorite) removeFavoriteAnnotation(verse);
-    else addFavoriteAnnotation(verse, id);
-
-    setIsFavorite(!isFavorite);
+    if (isFavorite) removeFavoriteAnnotation(verse.bibleId, verse.id);
+    else addFavoriteAnnotation(verse.bibleId, verse.id);
   };
 
   return (
@@ -31,33 +31,4 @@ export const Favorite = ({ verse }: FavoriteProps) => {
       )}
     </span>
   );
-};
-
-const checkFavorite = (verse: Verse) => {
-  const favorites = getAnnotationsByVerseId("1", verse.id);
-  return favorites.some(
-    (favorite: Annotation) =>
-      favorite.verseId === verse.id && favorite.bibleId === verse.bibleId
-  );
-};
-
-const addFavoriteAnnotation = (verse: Verse, id: string) => {
-  const newAnnotation: Annotation = {
-    id,
-    type: "favorite",
-    userId: "1",
-    bibleId: verse.bibleId,
-    bookId: verse.bookId,
-    chapterId: verse.chapterId,
-    verseId: verse.id,
-  };
-  addAnnotation(newAnnotation);
-};
-
-const removeFavoriteAnnotation = (verse: Verse) => {
-  const favorites = getAnnotationsByVerseId("1", verse.id);
-
-  favorites.forEach((favorite: Annotation) => {
-    removeAnnotation(favorite.id);
-  });
 };

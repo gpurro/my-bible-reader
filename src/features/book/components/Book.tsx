@@ -12,9 +12,11 @@ export const Book = ({ bookId, bibleId }: BookProps) => {
   return (
     <div>
       <div>Book: {bookQuery.data?.id}</div>
-      <div>Chapters</div>
+      <br />
+      <p>Chapters</p>
+      <br />
       <Chapters bibleId={bibleId} bookId={bookId} />
-      <div>Sections</div>
+      {/* <div>Sections</div> */}
     </div>
   );
 };

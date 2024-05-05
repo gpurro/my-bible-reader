@@ -17,7 +17,10 @@ export const Verses = ({ bibleId, chapterId }: VersesProps) => {
         {versesQuery.isSuccess && (
           <ul className="flex flex-wrap gap-2">
             {versesQuery.data?.map((verse) => (
-              <li key={verse.id} className="group">
+              <li
+                key={verse.id}
+                className="group border-gray-300 p-2 border-solid border-2 rounded-md hover:bg-gray-100 "
+              >
                 <Link
                   to={`/bible/${bibleId}/show/book/${verse.bookId}/chapter/${verse.chapterId}/verse/${verse.id}`}
                 >

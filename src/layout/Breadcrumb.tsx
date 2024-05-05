@@ -10,7 +10,11 @@ export const Breadcrumb = () => {
         {breadcrumbs.map((breadcrumb, index) => {
           return (
             <li key={index}>
-              <Link to={breadcrumb.url}>{breadcrumb.text}</Link>
+              {index < breadcrumbs.length - 1 ? (
+                <Link to={breadcrumb.url}>{breadcrumb.text}</Link>
+              ) : (
+                <span>{breadcrumb.text}</span>
+              )}
             </li>
           );
         })}
